@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import java.util.Random;
+
 /**
  * Created by diego on 22-05-2018.
  */
@@ -39,10 +41,12 @@ public class AlarmReceiver extends BroadcastReceiver {
                         0,
                         PendingIntent.FLAG_CANCEL_CURRENT
                 );
+
+        Random r = new Random();
+        int i1 = r.nextInt(100 - 1) + 1;
         mbuilder.setContentIntent(resultPendingIntent);
         NotificationManager mNotificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.notify(1, mbuilder.build());
-
+        mNotificationManager.notify(i1, mbuilder.build());
     }
 }

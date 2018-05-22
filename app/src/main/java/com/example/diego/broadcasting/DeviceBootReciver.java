@@ -25,7 +25,7 @@ public class DeviceBootReciver extends BroadcastReceiver {
 
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
-            alarmManager.setInexactRepeating(AlarmManager.RTC, SystemClock.elapsedRealtime(), AlarmManager.INTERVAL_HOUR * 3,
+            alarmManager.setInexactRepeating(AlarmManager.RTC, SystemClock.elapsedRealtime(), 60000,
                     PendingIntent.getBroadcast(context,1,  intentAlarm, PendingIntent.FLAG_UPDATE_CURRENT));
         }catch(Exception e){
             Log.e(TAG,e.toString());
